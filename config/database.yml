@@ -4,8 +4,25 @@
 #   Ensure the SQLite 3 gem is defined in your Gemfile
 #   gem 'sqlite3'
 development:
+  host: localhost
   adapter: postgresql
   database: ticketee_development
+  username: bogdan
+  password: password
+
+test:
+  host: localhost
+  adapter: postgresql
+  encoding: unicode
+  database: ticketee_test
+  username: bogdan
+  password: password
+
+production:
+  host: localhost
+  adapter: postgresql
+  encoding: unicode
+  database: ticketee_production
   username: bogdan
   password: password
 
