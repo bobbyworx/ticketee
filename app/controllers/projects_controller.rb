@@ -9,9 +9,13 @@ end
 
 def create
 	@project = Project.new
-	@project.save
-	flash[:notice] = "Project has been created"
-	redirect_to @project
+	if @project.save
+		flash[:notice] = "Project has been created"
+		redirect_to @project
+	else
+		flash[:notice] = "Project has not been created"
+		redirect_to :action => "new"
+	end
 end
 
 def show
