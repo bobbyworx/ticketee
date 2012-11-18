@@ -9,7 +9,7 @@ def new
 end
 
 def create
-	@project = Project.new
+	@project = Project.new(params[:project])
 	if @project.save
 		flash[:notice] = "Project has been created"
 		redirect_to @project
