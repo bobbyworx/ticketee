@@ -25,7 +25,3 @@ production:
   database: ticketee_production
   username: bogdan
   password: password
-
-
-cucumber:
-  <<: *test

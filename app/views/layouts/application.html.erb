@@ -6,6 +6,14 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
+<nav>
+<% if user_signed_in? %>
+	Signed in as <%= current_user.email %>
+	<%= link_to "Log out", destroy_user_session_path %>
+<% else %>
+	<%= link_to "Sign up", new_user_registration_path %>,
+<% end %>
+</nav>
 <body>
 <% flash.each do |key, value| %>
 	<div class='flash' id='<%= key %>'>
