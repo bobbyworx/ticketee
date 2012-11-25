@@ -1,5 +1,9 @@
 Ticketee::Application.routes.draw do
 
+namespace :admin do
+  resources :users
+end
+
   devise_for :users do
     get '/users/sign_out' => 'devise/sessions#destroy' 
   end
