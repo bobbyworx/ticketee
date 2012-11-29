@@ -1,21 +1,18 @@
 Ticketee::Application.routes.draw do
 
-namespace :admin do
-  root :to => "base#index"
-  resources :users
-end
-
-  devise_for :users do
+devise_for :users do
     get '/users/sign_out' => 'devise/sessions#destroy' 
   end
 
-  # The priority is based upon order of creation:
-  # first created -> highest priority.
 resources :projects do
   resources :tickets
 end
 root :to => "projects#index"
 
+namespace :admin do
+  root :to => "base#index"
+  resources :users
+end
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action
