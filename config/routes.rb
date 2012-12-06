@@ -1,8 +1,11 @@
 Ticketee::Application.routes.draw do
 
-devise_for :users do
-    get '/users/sign_out' => 'devise/sessions#destroy' 
-  end
+devise_for :users , :controllers => { :registrations => "registrations" } do
+  get '/awaiting_confirmation',
+  :to => "users#confirmation",
+  :as => 'confirm_user'
+  get '/users/sign_out' => 'devise/sessions#destroy' 
+end
 
 resources :projects do
   resources :tickets

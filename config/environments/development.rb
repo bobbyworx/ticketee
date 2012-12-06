@@ -44,8 +44,8 @@ Ticketee::Application.configure do
   :port => 587,
   :domain => "gmail.com",
   :authentication => :login,
-  :user_name => "bogdan.popa.a@gmail.com",
-  :password => "gmail900",
+  :user_name => "bogdan.popa@sparktech.ro",
+  :password => "bogdansparktech",
   }
   config.action_mailer.perform_deliveries = true
   #config.action_mailer.raise_delivery_errors = true
