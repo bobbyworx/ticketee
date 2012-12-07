@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.8'
 gem 'devise', '2.1.2'
+gem 'cancan'
 gem 'pg'
 gem 'json'
 
