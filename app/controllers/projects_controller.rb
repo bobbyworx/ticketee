@@ -6,7 +6,7 @@ class ProjectsController < ApplicationController
 def find_project
 	@project = Project.for(current_user).find(params[:id])
 	rescue ActiveRecord::RecordNotFound
-	flash[:notice] = "The project you were looking for could not be found"
+	flash[:alert] = "The project you were looking for could not be found"
 	redirect_to root_path
 end
 
@@ -24,7 +24,7 @@ def create
 		flash[:notice] = "Project has been created"
 		redirect_to @project
 	else
-		flash[:notice] = "Project has not been created"
+		flash[:alert] = "Project has not been created"
 		redirect_to :action => "new"
 	end
 end
@@ -40,7 +40,7 @@ def update
 		flash[:notice] = "Project has been updated"
 		redirect_to @project
 	else
-		flash[:notice] = "Project has not been updated"
+		flash[:alert] = "Project has not been updated"
 		redirect_to :action => "edit"
 	end
 end

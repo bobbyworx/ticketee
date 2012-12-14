@@ -7,15 +7,24 @@ devise_for :users , :controllers => { :registrations => "registrations" } do
   get '/users/sign_out' => 'devise/sessions#destroy' 
 end
 
+put '/admin/users/:user_id/permissions',
+    :to => 'admin/permissions#update',
+    :as => :update_user_permissions
+
 resources :projects do
   resources :tickets
 end
+
 root :to => "projects#index"
 
 namespace :admin do
   root :to => "base#index"
-  resources :users
+  resources :users do
+    resources :permissions
+  end
 end
+
+
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action
